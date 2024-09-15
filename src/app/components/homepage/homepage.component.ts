@@ -33,4 +33,10 @@ export class HomepageComponent {
   changeModalState(){
     this.isModalState = !this.isModalState;
   }
+
+  deleteFilter(id: number){
+    this.filterService.deleteFilter(id).subscribe(() => {
+      this.loadFilters();
+    });
+  }
 }

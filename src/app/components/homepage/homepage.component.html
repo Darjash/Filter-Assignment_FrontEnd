@@ -10,13 +10,14 @@
   <app-filter-dialog [isOpen]="isModalOpen" [isModal]="isModalState" (close)="closeModal()" (callLoadFilters)="loadFilters()"></app-filter-dialog>
 
   <div class="table-container">
-    <h4>Saved Filters:</h4></div>
+    <p>Saved Filters:</p></div>
     <div class="mt-4">
-      <table class="table table-striped">
+      <table *ngIf="filters" class="table table-striped">
         <thead>
           <tr>
             <th>Name</th>
             <th>Criteria</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -25,10 +26,11 @@
             <td>
               <ul>
                 <li *ngFor="let criteria of filter.criteria">
-                  {{ criteria.type }}: {{ criteria.description }}: {{ criteria.filterValue }}
+                  {{ criteria.type }} - {{ criteria.description }} - {{ criteria.filterValue }}
                 </li>
               </ul>
             </td>
+            <td><button (click)="deleteFilter(filter.id!)" type="button" class="btn btn-outline-danger" (click)="closeModal()" style="width: auto;">Delete</button></td>
           </tr>
         </tbody>
       </table>

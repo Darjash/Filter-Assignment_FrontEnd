@@ -17,4 +17,8 @@ export class FilterService {
   createFilter(filter: Filter): Observable<Filter> {
     return this.http.post<Filter>(`${this.baseUrl}/add`, filter);
   }
+
+  deleteFilter(id: number): Observable<Filter> {
+    return this.http.delete<Filter>(`${this.baseUrl}/delete/${id}`);
+}
 }
