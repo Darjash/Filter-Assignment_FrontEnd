@@ -4,24 +4,35 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. 
 
-## Code scaffolding
+## Taks
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Create an application which has a button to create new filter and representation of already created filters.
+Homepage consist of “Add Filter” button and representation of saved filters. If user clicks “Add Filter” button a filter dialog will appear. Representation ofsaved filters can be a table, dashboard or any other way to represent overview.
 
-## Build
+**Modal dialog functional requirements:**
+- (+) button creates new line of filtering criteria
+- (-) button deletes criteria
+- Filter should contain at least one criteria
+****
+-There can be 3 types of criteria: 
+- Amount with number comparing conditions
+- Title with text comparing conditions
+- Date with date comparing conditions, date choice can be represented by date picker or 3 combo boxes
+****
+- Each added criteria default as “Amount” type
+- Comparing conditions should correspond to selected criteria type
+- Filter dialog should have fixed size and be configurable to operate in modal/non-modal mode
+- Let the user resize only the height
+- If there are more rows than dialog can fit, scrolling should appear
+- In non-modal mode user by clicking “Add Filter” button sees filter dialog as part of page
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+**Architecture constraints**
+- Application backend should be implemented using Spring Boot (3+) and Java 17+
+- Application frontend should be implement using any modern JS framework or library (e.g. Angular)
+- Application frontend and backend should communicate using REST services and use JSON protocol for data transfer
+- Application data should be kept in SQL database (it is “OK” to use H2)
+- Application should create all required database schemas, tables and test-data on startup
+- Test data should contain at least 2 filters
